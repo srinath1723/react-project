@@ -1,9 +1,10 @@
 const App = () => {
-  const isLoggedIn=false;
+  const isLoggedIn=true;
 
  return(
   <div>
-    {isLoggedIn ? <h1>welcome back</h1> : <h1>please login</h1>}
+    {isLoggedIn && <h1>welcome back</h1>}
+    {!isLoggedIn && <h1>please login!</h1>}
   </div>
  )
 }
