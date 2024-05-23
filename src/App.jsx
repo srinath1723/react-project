@@ -1,11 +1,14 @@
 const App = () => {
-  const handleclick=()=>{
-    console.log('button click');
+  const handlechange=(e)=>{
+    console.log(e.target.value);
   }
   return (
     <div>
       <h1>React App</h1>
-     <button onClick={handleclick}>Click me!</button>  
+     <input
+     type="text"
+     onChange={handlechange}
+     />
      
       
     </div>
