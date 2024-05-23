@@ -1,12 +1,11 @@
 const App = () => {
-  const isLoggedIn=true;
+  const isLoggedIn=false;
 
- if(isLoggedIn) {
-  return <h1>welcome back!</h1>
-    
- }else{
-  return <h1> please login </h1>
- }
+ return(
+  <div>
+    {isLoggedIn ? <h1>welcome back</h1> : <h1>please login</h1>}
+  </div>
+ )
 }
 
 export default App
