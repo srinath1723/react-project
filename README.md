@@ -14,4 +14,12 @@ git log- view the commit history
 git branch-List all the branches in the repository
 git checkout branchname/commit ID- Switch to a different branch/commit
 
+## React- Day -3: React hooks & states
 
+-[x] Working with array lists
+-[x] Usage of keys
+-[x] Conditional rendering
+-[] Handling Events
+-[] Props vs State
+ 
+  render: insert the element into the DOM
