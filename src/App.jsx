@@ -9,9 +9,7 @@ const App = () => {
      type="text"
      onChange={handlechange}
      />
-     
-      
-    </div>
+     </div>
   )
 }
 
