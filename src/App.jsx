@@ -7,8 +7,8 @@ let[count,setCount]=useState(0);
 // runs when the component is mounted 
 // And whenever the state changes (any state within the component)
 useEffect(()=>{
-
-});
+console.log("component mounted")
+},[]);
 const hangleIncrement=()=>{
   setCount(count+1);
 }
