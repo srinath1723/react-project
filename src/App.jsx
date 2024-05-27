@@ -1,32 +1,36 @@
 import React, { Component } from 'react'
-
+class Hello extends Component{
+componentDidMount(){
+  console.log('Hello component Mounted')
+}
+componentWillUnmount(){
+  console.log('Hello component UnMounted')
+}
+  
+  render(){
+    return (
+      <h1>Hello world</h1>
+    )
+  }
+}
 export class App extends Component {
   constructor(props){
     super(props);
     this.state={
-      count:0
+      showHello: true
     }
   }
-  // componentDidMount is a life cycle method that  is called after the component is rendered
-  componentDidMount(){
-  console.log("component did mount")
-  }
-  componentDidUpdate(){
-    console.log("component did update")
-  }
-  componentWillUnmount(){
-    console.log("component will unmount")
-  }
-  handleIncrement=()=>{
-this.setState({
-  count:this.state.count+1
-})
+  hangleToggle=()=>{
+    this.setState({
+      showHello:!this.state.showHello
+    })
   }
   render() {
     return (
       <div>
-        <h1>counter:{this.state.count}</h1>
-        <button onClick={this.handleIncrement}>Increment</button>
+        <button onClick={this.hangleToggle}>Toggle Hello</button>
+        {this.state.showHello && <Hello />}
+        
       </div>
     )
   }
