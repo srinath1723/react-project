@@ -1,39 +1,27 @@
-import React, { Component } from 'react'
-class Hello extends Component{
-componentDidMount(){
-  console.log('Hello component Mounted')
+
+import { useState } from 'react'
+
+const App = () => {
+let[count,setCount]=useState(0);
+const hangleIncrement=()=>{
+  setCount(count+1);
 }
-componentWillUnmount(){
-  console.log('Hello component UnMounted')
-}
-  
-  render(){
-    return (
-      <h1>Hello world</h1>
-    )
+const hangleDecrement=()=>{
+  if(count>0){
+  setCount(count-1);
   }
 }
-export class App extends Component {
-  constructor(props){
-    super(props);
-    this.state={
-      showHello: true
-    }
-  }
-  hangleToggle=()=>{
-    this.setState({
-      showHello:!this.state.showHello
-    })
-  }
-  render() {
-    return (
-      <div>
-        <button onClick={this.hangleToggle}>Toggle Hello</button>
-        {this.state.showHello && <Hello />}
-        
-      </div>
-    )
-  }
+const hangleReset=()=>{
+  setCount(0);
+}
+  return (
+    <div>
+      <h1>Count:{count }</h1>
+      <button onClick={hangleIncrement}>Increament</button>
+      <button onClick={hangleDecrement}>Decrement</button>
+      <button onClick={hangleReset}>Reset</button>
+    </div>
+  )
 }
 
 export default App
