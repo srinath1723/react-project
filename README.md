@@ -1,10 +1,15 @@
-# React + Vite
-
-This is a `React + Vite project` created for the batch `FSD59WD-T` to demonstrate the concepts of React.
-
-## Day5 : React Hooks
+## React- Day5 : React Hooks
 -[x] What is the hook?
--[] Lifecycle of Hook
--[] useState, useEffect
--[] Props drilling
--[] Passing data from child to parent component
+
+  - hooks are functions that let you "hook into " react state and life cycle features from function components.
+  - Hooks don't work inside classes -they let you use react without classes.
+  - example : useState,useEffect,use Context,useReducer,useRef
+  
+-[x] Lifecycle of Hook
+    
+   - Mounting: When an instance of a component is being created and inserted into Dom.
+   - Updating
+   - Unmounting
+-[ ] useState, useEffect
+-[ ] Props drilling
+-[ ] Passing data from child to parent component
