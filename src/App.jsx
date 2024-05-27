@@ -1,8 +1,14 @@
 
-import { useState } from 'react'
+import { useEffect } from 'react';
+import { useState } from 'react';
 
 const App = () => {
 let[count,setCount]=useState(0);
+// runs when the component is mounted 
+// And whenever the state changes (any state within the component)
+useEffect(()=>{
+
+});
 const hangleIncrement=()=>{
   setCount(count+1);
 }

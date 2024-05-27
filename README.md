@@ -12,7 +12,7 @@
    - Updating: When a component is being re-rendered as a result of changes to either its props or state.
    - Unmounting: When a cpomponent is being removed from the Dom.
   
--[ ] useState, useEffect
+-[x] useState, useEffect
 
--[ ] Props drilling
--[ ] Passing data from child to parent component
+-[] Props drilling
+-[] Passing data from child to parent component
