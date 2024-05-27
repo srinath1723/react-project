@@ -10,6 +10,7 @@
    - Mounting: When an instance of a component is being created and inserted into Dom.
    - Updating
    - Unmounting
+  
 -[ ] useState, useEffect
 -[ ] Props drilling
 -[ ] Passing data from child to parent component

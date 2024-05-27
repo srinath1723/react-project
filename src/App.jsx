@@ -14,7 +14,7 @@ export class App extends Component {
   componentDidUpdate(){
     console.log("component did update")
   }
-  componentDidUpdate(){
+  componentWillUnmount(){
     console.log("component will unmount")
   }
   handleIncrement=()=>{
