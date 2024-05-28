@@ -1,37 +1,53 @@
+import { useState } from "react"
 
-
-import { useEffect, useState } from 'react';
-import Counter from './components/Counter';
-const App = () => {
-let[count,setCount]=useState(0);
-let[history,setHistory]=useState([]);
-
-useEffect(()=>{
-  console.log(history)
-},[history])
-const hangleIncrement=()=>{
-  setCount(count+1);
-  setHistory([...history,'I'])
-}
-const hangleDecrement=()=>{
-  setCount(count-1);
-  setHistory([...history,'D'])
-}
-const hangleReset=()=>{
-  setCount(0);
-  setHistory([...history,'R'])
-}
-
+const D = ({ counts }) => {
   return (
     <div>
-      <Counter
-      count={count} 
-      history={history} />
-      <button onClick={hangleIncrement}>Increment</button>
-      <button onClick={hangleDecrement}>Decrement</button>
-      <button onClick={hangleReset}>Reset</button>
+      <h2>D</h2>
+      <p>Total counts: { counts.a + counts.b + counts.c + counts.d }</p>
     </div>
   )
 }
 
-export default App
+const C = ({ counts }) => {
+  return (
+    <div>
+      <h2>C</h2>
+      <D 
+        counts={counts}
+      />
+    </div>
+  )
+}
+
+const B = ({ counts }) => {
+  return (
+    <div>
+      <h2>B</h2>
+      <C 
+        counts={counts}
+      />
+    </div>
+  )
+}
+
+const App = () => {
+
+  const [counts, setCounts] = useState({
+    a: 10,
+    b: 20,
+    c: 30,
+    d: 40
+  });
+
+  return (
+    <div>
+      <h1>App</h1>
+      <B 
+        counts={counts}
+      />
+    </div>
+  )
+}
+
+export default App;
