@@ -14,5 +14,6 @@
   
 -[x] useState, useEffect
 
--[] Props drilling
--[] Passing data from child to parent component
+-[x] Props drilling
+
+-[x] Passing data from child to parent component

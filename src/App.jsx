@@ -1,53 +1,37 @@
-import { useState } from "react"
+import { useEffect, useState } from "react";
 
-const D = ({ counts }) => {
+// Renamed 'bin' to 'Bin'
+const Bin = ({ sendData }) => {
+  const [loggedInUser, setLoggedInUser] = useState('jhon doe');
+
+  useEffect(() => {
+    // Update the loggedInUser and then send the data to the parent
+    const newLoggedInUser = 'new user';
+    setLoggedInUser(newLoggedInUser);
+    sendData(newLoggedInUser);
+  }, [sendData]);
+
   return (
     <div>
-      <h2>D</h2>
-      <p>Total counts: { counts.a + counts.b + counts.c + counts.d }</p>
+      <h1>Data from Bin to App</h1>
+      <p>Data in Bin: {loggedInUser}</p>
     </div>
-  )
-}
-
-const C = ({ counts }) => {
-  return (
-    <div>
-      <h2>C</h2>
-      <D 
-        counts={counts}
-      />
-    </div>
-  )
-}
-
-const B = ({ counts }) => {
-  return (
-    <div>
-      <h2>B</h2>
-      <C 
-        counts={counts}
-      />
-    </div>
-  )
-}
+  );
+};
 
 const App = () => {
+  const [user, setUser] = useState('');
 
-  const [counts, setCounts] = useState({
-    a: 10,
-    b: 20,
-    c: 30,
-    d: 40
-  });
+  const receivedData = (loggedInUser) => {
+    setUser(loggedInUser);
+  };
 
   return (
     <div>
-      <h1>App</h1>
-      <B 
-        counts={counts}
-      />
+      <Bin sendData={receivedData} />
+      <p>Data in App: {user}</p>
     </div>
-  )
-}
+  );
+};
 
 export default App;
