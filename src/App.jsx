@@ -3,18 +3,26 @@ import Register from "./pages/Register";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 
+
 //Create a router
 const router=createBrowserRouter([
 {
       path:"/",
-      element:<Home />
-},{
-      path:"/register",
+      element:<Home />,
+children:[
+      {
+         path:"/",
+         element:<div><a href="/register">Register</a>&nbsp;&nbsp; |&nbsp;&nbsp; 
+         <a href="/login">Login</a>  </div>
+      },{
+      path:"register",
       element:<Register />
 },{
-      path:"/login",
+      path:"login",
       element:<Login />
-}
+},
+]
+},
 ]);
 
 const App=()=>{
