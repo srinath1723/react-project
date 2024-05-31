@@ -1,3 +1,8 @@
-# React + Vite
+#  React- Day -8: Context API
 
-This is a `React + Vite project` created for the batch `FSD59WD-T` to demonstrate the concepts of React.
+  ## Contents:
+
+   -[] Context-API
+   -[] What is context, provide, createContext
+   -[] Avoid props drilling
+   -[] Session task – profile name changes
