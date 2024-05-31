@@ -1,28 +1,15 @@
-import { useContext } from "react";
 import { createContext } from "react"
 import { useState } from "react"
+import B from "./components/B";
 
 //create  a context to store the name
 const NameContext= createContext();
-
-const D=()=>{
-  // use the context in thr component
-  const {name}=useContext(NameContext)
-  return <h1>hello , {name}!</h1>
- }
-const C=()=>{
-  return <D />
-}
-
-const B=()=>{
- return <C />
-}
 //wrap the compont tree with the context provider
 const App=()=>{
-  const [name,setName] =useState('jhon')
+  const [name,setName] =useState('Srinath')
       return (
-      <NameContext.Provider value={{name}}>
+      <NameContext.Provider value={{name,setName}}>
       <B />
       </NameContext.Provider>)
 }
-export default App;
+export { App as default, NameContext};
