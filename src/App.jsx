@@ -1,15 +1,18 @@
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
-import Home from "./pages/Home";
-import Note from "./pages/Note";
+import Users, { loader as notesLoader } from "./pages/Users";
+
+
 // create a router
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Home />
+    element: <users />,
+    loader: notesLoader
   },
   {
-    path: "/notes/:id",
-    element: <Note />,
+    path: "/users/:id",
+    element: <Users />,
+    loader: notesLoader
   }
 ]);
 const App = () => {
