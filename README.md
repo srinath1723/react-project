@@ -4,5 +4,5 @@
 
    -[] Context-API
    -[] What is context, provide, createContext
-   -[] Avoid props drilling
+   -[x] Avoid props drilling
    -[] Session task – profile name changes
