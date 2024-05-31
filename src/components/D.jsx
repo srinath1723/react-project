@@ -1,7 +1,7 @@
 import { useContext, useEffect } from "react";
 import { NameContext } from "../App";
 
-const D = () => {
+const D = ({children}) => {
     const {name,setName}=useContext(NameContext);
     useEffect(()=>{
       setTimeout(()=>{
@@ -9,7 +9,10 @@ const D = () => {
       },5000);
     }
   )
-    return <h1>hello , {name}!</h1>
+    return <div>
+        <h1>hello , {name}!</h1>
+        {children}
+    </div>
 }
 
 export default D
