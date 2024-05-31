@@ -1,3 +1,4 @@
+import { useName } from "../contexts/NameContext";
 import Z from "./Z";
 
 /*
@@ -6,10 +7,15 @@ import Z from "./Z";
 */
 
 const Y = () => {
+    const {name,setName}=useName();
+    const updatename=(e)=>{
+        setName(e.target.value);
+    }
   return (
       <div>
-        
-          <Z />
+        <Z />
+        <input type="text" value={name} onChange={updatename}></input>
+          
     </div>
   )
 }
