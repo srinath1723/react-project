@@ -1,5 +1,25 @@
-//component:App
+import { useRef } from "react";
+
 const App=()=>{
-      return <h1>Hello, World!</h1>
+      //create a reference using useRef hook
+      const inputRef=useRef(null);
+      
+      const hadleClick=()=>{
+           //focus the input element here
+           inputRef.current.focus();
+           
+      }
+     
+     
+      return (
+      <>
+      <input 
+      type="text"
+      ref={inputRef}
+      />
+      <button onClick={hadleClick}>Focus Inputs</button>
+      
+      </>
+)
 }
 export default App;
