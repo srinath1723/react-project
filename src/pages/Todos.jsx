@@ -1,34 +1,40 @@
-//define a loader function
-import axios  from "axios";
- import {useLoaderData} from "react-router-dom";
-export const loader= async()=>{
+import axios from "axios";
+import { useLoaderData } from "react-router-dom";
+import TodoItem from "../components/TodoItem";
+import { useState } from "react";
 
-
+// define a loader function
+export const loader = async () => {
     // make an async call to fetch data
     const todos = await axios.get(`https://665fee565425580055b161ab.mockapi.io/todos`);
- 
- // return the data
- return todos.data;
- }
- 
- 
- 
- const Todos = () => {
-  //use the dats using the useLoader  hook  
-  const todos=useLoaderData();
-  console.log(todos);
+
+    // return the data
+    return {todos: todos.data };
+}
+
+const Todos = () => {
+
+    // use the data using the useLoader hook
+    const { todos: initialTodos } = useLoaderData();
+    const [todos, setTodos] = useState(initialTodos);
+
+    const handleUpdateTodo = (updatedTodo) => {
+        setTodos(todos.map(todo => (todo.id === updatedTodo.id ? updatedTodo : todo)));
+    }
+
   return (
-    <div>
-          <h1>Todo List</h1>
-          <ul>
-              {
-                  todos.map(todo => (
-                      <li key={todo.id}><strong>{todo.title}</strong><br /><em>{todo.description}</em></li>
-                  ))
-              }
-          </ul>
+      <div>
+        <h1>Todo List</h1>
+        {
+            todos.map(todo => (
+                <TodoItem 
+                    todo={todo}
+                    key={todo.id}
+                    onUpdateTodo={handleUpdateTodo}
+                />
+            ))
+        }
     </div>
   )
 }
-
 export default Todos;
