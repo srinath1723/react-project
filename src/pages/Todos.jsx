@@ -1,17 +1,14 @@
 //define a loader function
+import axios  from "axios";
  import {useLoaderData} from "react-router-dom";
 export const loader= async()=>{
 
-    const response=await fetch('https://665fee565425580055b161ab.mockapi.io/todos',
-    {
-        method:"GET"
-    }
-);
-// parse the response
- const todos=await response.json();
+
+    // make an async call to fetch data
+    const todos = await axios.get(`https://665fee565425580055b161ab.mockapi.io/todos`);
  
  // return the data
- return todos;
+ return todos.data;
  }
  
  
@@ -22,7 +19,14 @@ export const loader= async()=>{
   console.log(todos);
   return (
     <div>
-      Todos
+          <h1>Todo List</h1>
+          <ul>
+              {
+                  todos.map(todo => (
+                      <li key={todo.id}><strong>{todo.title}</strong><br /><em>{todo.description}</em></li>
+                  ))
+              }
+          </ul>
     </div>
   )
 }
