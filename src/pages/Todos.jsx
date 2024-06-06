@@ -37,6 +37,9 @@ const Todos = () => {
 
     alert('Todo created successfully');
   }
+  const handledeleteTodo =async(id)=>{
+    setTodos(todos.filter(todo => todo.id !== id));
+  }
   return (
       <div>
         <h1>Todo List</h1>

@@ -1,5 +1,6 @@
 import axios from "axios";
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {faTrash} from '@fortawesome/free-solid-svg-icons';
 const TodoItem = ({ todo, onUpdateTodo }) => {
 
     const handleCheckboxChange = async () => {
@@ -20,6 +21,22 @@ const TodoItem = ({ todo, onUpdateTodo }) => {
             console.error(`Failed to update todo: ${error}`);
         }
     }
+    const handleClickDelete =async ()=>{
+        try {
+            
+
+            const response = await axios.delete(
+                `https://665fee565425580055b161ab.mockapi.io/todos/${todo.id}`,
+                
+            );
+
+            onDeleteTodo && onDeleteTodo(todo.id);
+
+        } catch (error) {
+            console.error(`Failed to delete Todo: ${error}`);
+        }
+
+    }
 
   return (
       <div>
@@ -29,7 +46,16 @@ const TodoItem = ({ todo, onUpdateTodo }) => {
               onChange={handleCheckboxChange}
           />
           <span>
-              <strong>{todo.title}</strong><br /><em>{todo.description}</em>
+              <strong>{todo.title.toUpperCase()}</strong>:<em>{todo.description}</em>
+          </span>
+          <br/>
+          <span>
+            <FontAwesomeIcon 
+               icon={faTrash}
+               color="red"
+               fontSize={16}
+               onClick={handleClickDelete}
+            />
           </span>
     </div>
   )
