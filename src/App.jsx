@@ -1,5 +1,17 @@
-//component:App
-const App=()=>{
-      return <h1>Hello, World!</h1>
+import { RouterProvider, createBrowserRouter } from "react-router-dom"
+import Todos from "./Components/Todos";
+import {loader as usersLoader} from "./Components/Todos";
+const App = () => {
+  const router=createBrowserRouter([
+    {
+      path:"/",
+      element:<Todos />,
+      loader: usersLoader
+  }
+  ])
+  return <RouterProvider router={router} />
+    
+  
 }
-export default App;
+
+export default App
