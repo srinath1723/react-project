@@ -1,13 +1,11 @@
 # MYSQL 2024-06-11
+- compariction chart link("https://github.com/rvsp/database/blob/master/sql-mongo_comparison.md")
 
 **Database:**
     
-   - Collection of data.
-    Data is either
-        structured
-        tables (rows and columns)
-        SQL: Structured Query Language
-        MySQL, PostgreSQL, SQLite, Oracle, MS SQL Server, etc.
+   - Collection of data.m Data is either structure tables (rows and columns)
+    SQL: Structured Query Language
+    MySQL, PostgreSQL, SQLite, Oracle, MS SQL Server, etc.
         unstructured.
         JSON, XML, etc.
         NoSQL: Not Only SQL
